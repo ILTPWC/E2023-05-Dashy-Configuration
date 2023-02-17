@@ -1,0 +1,151 @@
+appConfig:
+  theme: colorful
+  layout: auto
+  iconSize: small
+  language: de
+pageInfo:
+  title: GoebiNet - Ghargatuloth
+  description:  Services and System Monitor for the Virtual Machine - Ghargatuloth (192.168.23.138)
+  navLinks:
+    - title: Unifi
+      path: https://unifi.goebis.com
+    - title: Cloud
+      path: https://cloud.digitalocean.com/projects/9fb5f8b2-fe85-4462-8204-404bc97a2677/resources?i=e08f3c
+  footerText: hosted with love ♥ by Herr Bär (ILTPWC)
+sections:
+  - name: Debugging
+    icon: fas fa-film
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+    items:
+      - title: Traefik
+        description: ReverseProxy
+        icon: traefik.png
+        url: https://malfallax.goebis.com/
+        target: newtab
+      - title: SSHwifty
+        description: Komga - Comics, Books and RPGs
+        icon: sshwifty.png
+        url: https://ssh.goebis.com
+        target: newtab
+  - name: CPU
+    icon: fas fa-monitor-waveform
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+    widgets:
+    - type: gl-current-cpu
+      useProxy: true
+      options:
+        hostname: https://glghargatuloth.goebis.com/
+  - name: CPU History
+    icon: fas fa-monitor-waveform
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+    widgets:
+    - type: gl-cpu-history
+      useProxy: true
+      options:
+        hostname: https://glghargatuloth.goebis.com/
+  - name: CPU Temp
+    icon: fas fa-monitor-waveform
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+    widgets:
+    - type: gl-cpu-temp
+      useProxy: true
+      options:
+        hostname: https://glghargatuloth.goebis.com/
+  - name: Memory
+    icon: fas fa-monitor-waveform
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+    widgets:
+    - type: gl-current-mem
+      useProxy: true
+      options:
+        hostname: https://glghargatuloth.goebis.com/
+  - name: Memory History
+    icon: fas fa-monitor-waveform
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+    widgets:
+    - type: gl-mem-history
+      useProxy: true
+      options:
+        hostname: https://glghargatuloth.goebis.com/
+  - name: Disk Space
+    icon: fas fa-monitor-waveform
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+    widgets:
+    - type: gl-disk-space
+      useProxy: true
+      options:
+        hostname: https://glghargatuloth.goebis.com/
+  - name: System Load History
+    icon: fas fa-monitor-waveform
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+    widgets:
+    - type: gl-load-history
+      useProxy: true
+      options:
+        hostname: https://glghargatuloth.goebis.com/
+  - name: Network Traffic
+    icon: fas fa-monitor-waveform
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+    widgets:
+    - type: gl-network-traffic
+      useProxy: true
+      options:
+        hostname: https://glghargatuloth.goebis.com/
+  - name: System Alerts
+    icon: fas fa-monitor-waveform
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+    widgets:
+    - type: gl-alerts
+      useProxy: true
+      options:
+        hostname: https://glghargatuloth.goebis.com/

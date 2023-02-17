@@ -1,0 +1,79 @@
+version: "2.2"
+services:
+  traefik:
+    image: traefik:latest
+    container_name: traefik
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - iltpwc
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./data-traefik/traefik.yml:/traefik.yml:ro
+      - ./data-traefik/acme.json:/acme.json
+      - ./data-traefik/configurations:/configurations
+    environment:
+      - DO_AUTH_TOKEN=<YOUR_OUT_TOKEN>
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=iltpwc"
+      - "traefik.http.routers.traefik-secure.entrypoints=websecure"
+      - "traefik.http.routers.traefik-secure.rule=Host(`<YOUR_TRAEFIK_DOMAIN>`)"
+      - "traefik.http.routers.traefik-secure.service=api@internal"
+      - "traefik.http.routers.traefik-secure.middlewares=user-auth@file"
+
+  wikijs-db:
+    image: postgres:11-alpine
+    container_name: wikijs-db
+    networks:
+      - malfallax
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - ./data-wikidb:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: wiki
+      POSTGRES_PASSWORD: WelcomeToILTPWC
+      POSTGRES_USER: wikijs
+    logging:
+      driver: "none"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=iltpwc"
+      - "traefik.tcp.routers.wikijs-db.rule=HostSNI(`*`)"
+      - "traefik.tcp.routers.wikijs-db.entrypoints=postgresdb"
+      - "traefik.tcp.routers.wikijs-db.service=wikijs-db@docker"
+      - "traefik.tcp.services.wikijs-db.loadbalancer.server.port=5432"
+
+  wiki:
+    image: requarks/wiki:latest
+    container_name: wiki
+    networks:
+      - iltpwc
+    security_opt:
+      - no-new-privileges:true
+    depends_on:
+      - wikijs-db
+    environment:
+      DB_TYPE: postgres
+      DB_HOST: wikijs-db
+      DB_PORT: 5432
+      DB_USER: wikijs
+      DB_PASS: WelcomeToILTPWC
+      DB_NAME: wiki
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=malfallax"      
+      - "traefik.http.routers.wiki.entrypoints=websecure"
+      - "traefik.http.routers.wiki.rule=Host(`<YOUR_WIKI_DOMAIN>`)"
+      - "traefik.http.routers.wiki.service=wiki"
+      - "traefik.http.services.wiki.loadbalancer.server.port=3000"   
+
+networks:
+  iltpwc:
+    external: true

@@ -1,0 +1,187 @@
+pages:
+- name: Malfallax
+  path: 'malfallax.yml'
+- name: Ghargatuloth
+  path: 'ghargatuloth.yml'
+- name: Marabas
+  path: 'marabas.yml'
+appConfig:
+  theme: adventure
+  layout: auto
+  iconSize: small
+  language: de
+pageInfo:
+  title: GoebiNet - Dashboard
+  description:  Welcome to our amazing home network - it's like the internet but will still be available in the zombie apocalypse
+  navLinks:
+    - title: Unifi
+      path: https://unifi.goebis.com
+    - title: Cloud
+      path: https://cloud.digitalocean.com/projects/9fb5f8b2-fe85-4462-8204-404bc97a2677/resources?i=e08f3c
+  footerText: hosted with love ♥ by Herr Bär (ILTPWC)
+sections:
+  - name: Entertainment & Library
+    icon: fas fa-film
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+    items:
+      - title: GoebiFlix
+        description: Plex - Home Entertainment
+        icon: plex.png
+        url: https://goebiflix.goebis.com:32400/web/index.html#!/
+        target: newtab
+      - title: Comics/Books
+        description: Komga - Comics, Books and RPGs
+        icon: komga.png
+        url: http://192.168.23.226:8080/dashboard
+        target: newtab
+      - title: GoebiLib
+        description: The family knowledge base
+        icon: fas fa-book-heart
+        url: https://lib.goebis.com
+        target: newtab
+      - title: Projects
+        description: The GoebiNet Documentation
+        icon: fas fa-align-justify
+        url: https://docs.goebis.com
+        target: newtab
+      - title: Paperless
+        description: Dokumenten Management
+        icon: paperless.png
+        url: http://192.168.23.215:8000/accounts/login/?next=/
+        target: newtab
+      - title: Podcasts
+        description: Podcasts
+        icon: fas fa-podcast
+        url: https://podcast.goebis.com
+        target: newtab
+  - name: GoebiDev
+    icon: fas fa-code
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+    items:
+      - title: Code Zarakynel
+        icon: codeserver.png
+        url: http://dev.goebis.com:8443/
+        target: newtab
+      - title: Code Malfallax
+        icon: codeserver.png
+        url: https://dev2.goebis.com
+        target: newtab        
+      - title: Gitlab
+        icon: gitlab.png
+        url: https://gitlab.goebis.com/
+        target: newtab
+      - title: Gogs
+        icon: gogs.png
+        url: https://git.goebis.com/
+        target: newtab
+      - title: RabbitMQ
+        icon: rabbitmq.png
+        url: https://rmq-pi.goebis.com
+        target: newtab
+      - title: Grafana
+        icon: grafana.png
+        url: https://grafana.goebis.com
+        target: newtab        
+  - name: GoebiHome
+    icon: fas fa-home
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+    items:
+      - title: Node Red
+        icon: nodered.png
+        url: https://node-red.goebis.com
+        target: newtab
+      - title: Home Assist
+        icon: homeassist.png
+        url: https://home.goebis.com
+        target: newtab
+      - title: Vaultwarden
+        description: Password Manager
+        icon: vaultwarden.png
+        url: https://bitwarden.goebis.com
+        target: newtab
+  - name: GoebiNet
+    icon: fas fa-video
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+    items:
+      - title: Unifi Network
+        description: Unifi Protect
+        icon: unifiprotect.png
+        url: https://unifi.goebis.com/network/default/dashboard
+        target: newtab
+      - title: Unifi Protect
+        description: Unifi Protect
+        icon: unifinetwork.png
+        url: https://unifi.goebis.com/protect/dashboard
+        target: newtab
+      - title: Backups
+        description: Duplicati on Zarakynel
+        icon: duplicati.png
+        url: http://192.168.23.225:8200/
+        target: newtab
+      - title: SSHwifty
+        description: Remote Access
+        icon: sshwifty.png
+        url: https://ssh.goebis.com
+        target: newtab
+      - title: PiHole DNS1
+        description: Primary DNS
+        icon: pihole.png
+        url: http://dns1.goebis.com/admin/
+        target: newtab
+      - title: PiHole DNS2
+        description: Secondary DNS
+        icon: pihole.png
+        url: https://dns2.goebis.com/admin/
+        target: newtab
+  - name: Server
+    icon: fas fa-server
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+    items:
+      - title: Zarakynel (Unraid)
+        icon: unraid.png
+        url: http://zarakynel.goebis.com
+        target: newtab
+      - title: Ghargatuloth (Traefik)
+        icon: traefik.png
+        url: https://ghargatuloth.goebis.com/
+        target: newtab
+      - title: Malfallax (Traefik)
+        description: Traefik on Malfallax
+        icon: traefik.png
+        url: https://malfallax.goebis.com
+        target: newtab
+      - title: Marabas (Treafik)
+        description: Traefik on Marabas
+        icon: traefik.png
+        url: https://marabas.goebis.com
+        target: newtab
+      - title: Portainer (Malfallax)
+        description: Portainer malfallax
+        icon: portainer.png
+        url: https://portainer.goebis.com
+        target: newtab
